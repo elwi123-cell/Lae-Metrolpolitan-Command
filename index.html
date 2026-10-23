@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lae Metropolitan Command — public information, policing services, safety information, news and contacts for Lae City, Morobe Province, Papua New Guinea.">
+  <meta name="theme-color" content="#07111f">
+  <title>Lae Metropolitan Command | Royal Papua New Guinea Constabulary</title>
+  <style>
+    :root{
+      --navy:#07111f; --navy2:#0d1b2d; --blue:#123c66; --gold:#d8a83e;
+      --white:#fff; --muted:#64748b; --light:#f5f7fa; --line:#e5e7eb;
+      --danger:#a51d2d; --shadow:0 14px 40px rgba(7,17,31,.10);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;color:#172033;background:var(--white);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .top{background:#020913;color:#dbe5ef;font-size:13px}
+    .top .wrap{max-width:1200px;margin:auto;padding:9px 22px;display:flex;justify-content:space-between;gap:15px}
+    header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 4px 18px rgba(0,0,0,.16)}
+    .nav{max-width:1200px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .crest{width:52px;height:52px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:800;font-size:12px;text-align:center}
+    .brand strong{display:block;font-size:17px;letter-spacing:.2px}
+    .brand small{color:#b7c6d7;font-size:11px}
+    nav{display:flex;gap:20px;align-items:center;font-size:14px;font-weight:700}
+    nav a:hover{color:var(--gold)}
+    .btn{display:inline-block;padding:12px 18px;border-radius:5px;background:var(--gold);color:#111;font-weight:800}
+    .btn.dark{background:var(--navy);color:#fff;border:1px solid #31445c}
+    .hero{background:linear-gradient(120deg,rgba(7,17,31,.97),rgba(10,43,72,.88)),url('assets/lae-city.jpg') center/cover; color:#fff}
+    .hero-inner{max-width:1200px;margin:auto;padding:88px 22px 76px;display:grid;grid-template-columns:1.3fr .7fr;gap:45px;align-items:center}
+    .eyebrow{color:var(--gold);font-weight:800;letter-spacing:1.8px;text-transform:uppercase;font-size:12px}
+    h1{font-size:clamp(38px,5vw,64px);line-height:1.06;margin:13px 0 20px;max-width:760px}
+    .hero p{font-size:18px;color:#d8e2ec;max-width:720px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .emergency{background:#fff;color:#172033;border-radius:8px;padding:28px;box-shadow:var(--shadow)}
+    .emergency h3{font-size:18px;margin-bottom:6px}
+    .emergency .num{font-size:39px;font-weight:900;color:var(--danger);line-height:1.1;margin:8px 0}
+    .emergency p{font-size:13px;color:#59677a}
+    .section{padding:70px 22px}
+    .wrap{max-width:1200px;margin:auto}
+    .section-head{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:28px}
+    .section-head h2{font-size:32px;color:var(--navy);line-height:1.15}
+    .section-head p{max-width:650px;color:#667085}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{border:1px solid var(--line);border-radius:8px;padding:25px;background:#fff;box-shadow:0 5px 20px rgba(7,17,31,.045);transition:.2s}
+    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .icon{width:43px;height:43px;border-radius:6px;background:#eef4f9;color:var(--blue);display:grid;place-items:center;font-weight:900;margin-bottom:17px}
+    .card h3{font-size:18px;margin-bottom:7px;color:var(--navy)}
+    .card p{font-size:14px;color:#667085}
+    .band{background:var(--light)}
+    .notice{background:#fff7df;border-left:5px solid var(--gold);padding:18px 20px;border-radius:5px;margin-top:20px}
+    .news{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+    .news-main,.news-side{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+    .news-image{height:250px;background:linear-gradient(135deg,#183c5e,#07111f);display:grid;place-items:center;color:#b9c7d5;font-weight:800}
+    .news-content{padding:24px}.date{font-size:12px;color:#7a8797;text-transform:uppercase;letter-spacing:.8px}
+    .news-content h3{font-size:23px;color:var(--navy);margin:8px 0}
+    .news-content p{color:#667085}
+    .news-side article{padding:21px;border-bottom:1px solid var(--line)}
+    .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .quick a{padding:24px;border-radius:7px;background:var(--navy);color:#fff;font-weight:800}
+    .quick span{display:block;color:#aebdce;font-size:13px;font-weight:400;margin-top:5px}
+    footer{background:#030a13;color:#d8e2ec;padding:55px 22px 20px}
+    .footgrid{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:35px}
+    footer h3{color:#fff;margin-bottom:14px;font-size:15px}
+    footer p,footer li{font-size:13px;color:#9eafc1}
+    footer ul{list-style:none}.footer-bottom{max-width:1200px;margin:40px auto 0;border-top:1px solid #203044;padding-top:18px;display:flex;justify-content:space-between;gap:15px;font-size:12px;color:#7f92a7}
+    @media(max-width:900px){nav{display:none}.hero-inner{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.news{grid-template-columns:1fr}.footgrid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.grid,.quick,.footgrid{grid-template-columns:1fr}.top .wrap{display:block}.top .wrap div+div{margin-top:4px}.hero-inner{padding-top:60px}.section{padding:50px 18px}.nav{padding:12px 18px}.brand strong{font-size:14px}.brand small{font-size:9px}h1{font-size:39px}.emergency .num{font-size:34px}.footer-bottom{display:block}.footer-bottom div+div{margin-top:8px}}
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="wrap">
+      <div>ROYAL PAPUA NEW GUINEA CONSTABULARY • NORTHERN COMMAND</div>
+      <div>Lae Metropolitan Command • Morobe Province</div>
+    </div>
+  </div>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html" aria-label="Lae Metropolitan Command home">
+        <div class="crest">LMC<br>RPNGC</div>
+        <div><strong>LAE METROPOLITAN COMMAND</strong><small>Royal Papua New Guinea Constabulary</small></div>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="crime-prevention.html">Safety</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn" href="emergency.html">Emergency</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Official public information portal</div>
+          <h1>Serving Lae. Protecting our community.</h1>
+          <p>Welcome to the Lae Metropolitan Command public information portal. Find policing services, safety information, official updates and contact channels for Lae City.</p>
+          <div class="hero-actions">
+            <a class="btn" href="report-crime.html">Report a Crime</a>
+            <a class="btn dark" href="services.html">Explore Police Services</a>
+          </div>
+        </div>
+        <aside class="emergency">
+          <h3>Police Emergency</h3>
+          <div class="num">112</div>
+          <p>For urgent assistance in Lae. Use the emergency service responsibly and provide your location and essential details.</p>
+          <hr style="border:0;border-top:1px solid #e5e7eb;margin:18px 0">
+          <p><strong>Additional Lae police contact:</strong><br>7090 3300</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow" style="color:#123c66">Public services</div><h2>Police services for the community</h2></div>
+          <p>Access practical information about reporting, policing support, public safety and community engagement.</p>
+        </div>
+        <div class="grid">
+          <a class="card" href="report-crime.html"><div class="icon">01</div><h3>Report a Crime</h3><p>Learn how and where to report incidents and provide information to police.</p></a>
+          <a class="card" href="stations.html"><div class="icon">02</div><h3>Police Stations</h3><p>Find information about police stations and local policing points.</p></a>
+          <a class="card" href="crime-prevention.html"><div class="icon">03</div><h3>Crime Prevention</h3><p>Practical information to help individuals, families and businesses improve safety.</p></a>
+          <a class="card" href="contact.html"><div class="icon">04</div><h3>Contact Command</h3><p>Find official contact information and channels for enquiries and assistance.</p></a>
+        </div>
+        <div class="notice"><strong>Emergency:</strong> For immediate police assistance in Lae, call <strong>112</strong>. Do not use emergency lines for routine enquiries.</div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow" style="color:#123c66">Command profile</div><h2>Policing Lae City</h2></div>
+          <p>Lae Metropolitan Command operates within the Royal Papua New Guinea Constabulary's Northern Command structure.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>Metropolitan focus</h3><p>Lae Metropolitan Command is responsible for policing Lae City, while Morobe Provincial Police Command has province-wide responsibilities.</p></div>
+          <div class="card"><h3>Four-station delivery</h3><p>RPNGC planning material describes policing services in the metropolitan area as being delivered through police stations across the command.</p></div>
+          <div class="card"><h3>Community partnership</h3><p>Effective policing depends on cooperation between police, communities, government agencies, businesses and other stakeholders.</p></div>
+          <div class="card"><h3>Professional service</h3><p>Our public-facing information is designed to support lawful, impartial and professional policing and public confidence.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow" style="color:#123c66">Latest information</div><h2>News & public updates</h2></div>
+          <a class="btn dark" href="news.html">View all news</a>
+        </div>
+        <div class="news">
+          <article class="news-main">
+            <div class="news-image">LAE METROPOLITAN COMMAND</div>
+            <div class="news-content">
+              <div class="date">Official information</div>
+              <h3>Building safer communities through communication and partnership</h3>
+              <p>Use this portal to publish verified command announcements, community policing initiatives, public safety notices and media releases.</p>
+              <a href="media-releases.html" style="display:inline-block;margin-top:14px;color:#123c66;font-weight:800">View media releases →</a>
+            </div>
+          </article>
+          <div class="news-side">
+            <article><div class="date">Public safety</div><h3>Emergency communications</h3><p>Lae police launched 112 as an additional emergency number in December 2025.</p></article>
+            <article><div class="date">Northern Command</div><h3>Forensic capability development</h3><p>Construction of a forensic laboratory at Bumbu Barracks was reported in August 2026.</p></article>
+            <article><div class="date">Community</div><h3>Official announcements</h3><p>Check this page regularly for verified updates from Lae Metropolitan Command.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow" style="color:#123c66">Quick access</div><h2>Important links</h2></div>
+        </div>
+        <div class="quick">
+          <a href="wanted-persons.html">Wanted Persons<span>Official notices only</span></a>
+          <a href="missing-persons.html">Missing Persons<span>Information and reporting guidance</span></a>
+          <a href="complaints.html">Complaints & Feedback<span>Information on raising concerns</span></a>
+          <a href="police-clearance.html">Police Clearance<span>Procedures and requirements</span></a>
+          <a href="recruitment.html">Recruitment<span>Official recruitment information</span></a>
+          <a href="downloads.html">Downloads<span>Forms, notices and public resources</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footgrid">
+      <div>
+        <h3>Lae Metropolitan Command</h3>
+        <p>Royal Papua New Guinea Constabulary<br>Northern Command<br>Lae, Morobe Province<br>Papua New Guinea</p>
+      </div>
+      <div>
+        <h3>Public Safety</h3>
+        <ul><li><a href="emergency.html">Emergency</a></li><li><a href="report-crime.html">Report a Crime</a></li><li><a href="crime-prevention.html">Crime Prevention</a></li><li><a href="stations.html">Police Stations</a></li></ul>
+      </div>
+      <div>
+        <h3>Information</h3>
+        <ul><li><a href="about.html">About</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="news.html">News</a></li><li><a href="downloads.html">Downloads</a></li></ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>Lae Metro / Morobe: <strong>4722222</strong><br>Lae police emergency: <strong>112</strong><br>Additional contact: <strong>70903300</strong></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Lae Metropolitan Command • Royal Papua New Guinea Constabulary</div>
+      <div><a href="privacy.html">Privacy</a> &nbsp; | &nbsp; <a href="terms.html">Terms</a> &nbsp; | &nbsp; <a href="sitemap.html">Sitemap</a></div>
+    </div>
+  </footer>
+</body>
+</html>
